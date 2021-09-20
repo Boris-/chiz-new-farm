@@ -86,7 +86,7 @@ const DashBoard = () => {
                     </Navbar.Brand>
                     
                     <Navbar.Collapse id="basic-navbar-nav" style={{ marginRight: "24px" }}>
-                        <Nav className="ml-auto" style={{ fontSize: "18px" }}>
+                        <Nav className="ml-auto" style={{ fontSize: "14px" }}>
                             <Form.Group className="headerdropdown">
                                 <InputGroup className="headerdropdown" style={{ background: '#FFF', border: '1px solid #FCDFE9' }}>
                                     <InputGroup.Prepend className="prePended">
@@ -101,7 +101,7 @@ const DashBoard = () => {
                                         <div style={{
                                             borderRadius: '8px', background: '#FFF !important', minWidth: '221px'
                                         }}>
-                                            <p style={{ padding:'0 12px', fontFamily:'Visby 400', fontSize:'18px' }}>Connected with MetaMask</p>
+                                            <p style={{ padding:'0 12px', fontFamily:'Visby 400', fontSize:'12px' }}>Connected with MetaMask</p>
                                             <div style={{
                                                 margin: 8,
                                                 borderRadius: '8px', border: '1px Solid #E5E5E5', padding: '4px 0'
@@ -139,7 +139,7 @@ const DashBoard = () => {
                                                 </div>
                                                 <div>
                                                     <h3>Notifications</h3>
-                                                    <p>Stay up to date with all the CHIZ farm updates here.</p>
+                                                    <p>Stay up to date with all the KawaFarm updates here.</p>
                                                 </div>
                                             </Popover.Content>
                                         </Popover>
@@ -176,19 +176,70 @@ const DashBoard = () => {
               
                    
                 </Row>
-                
+                <Modal show={show} onHide={handleClose} animation={false} style={{ borderRadius: '24px' }}>
+                    <Modal.Body className="p-0 form-listtoken">
+                        <div className="gradient" style={{ backgroundSize: 'cover', backgroundImage: "url(" + ListedFormBG + ")"}}>
+
+                            <Row className="p-4 pb-0">
+                                <Col lg={12}>
+                                    <h1 className="text-center">List your dog token</h1>
+                                </Col>
+                                <Col lg={12}>
+                                    <div className="mx-auto" style={{ maxWidth: '400px' }}>
+                                        <p className="text-center mb-0">Complete the form below if you’d like to discuss partnership opportunities.</p>
+                                    </div>
+
+                                </Col>
+                            </Row>
+                        </div>
+                        <div className="mx-auto py-4" style={{ maxWidth: '360px', padding:'0 15px' }}>
+                            <Row>
+                                <Col lg={12}><p style={{ color: '#F51C66' }}><strong>KawaFarm application form</strong></p></Col>
+                                <Col lg={12}>
+                                    <Form onSubmit={onFormSubmit}>
+                                        <Form.Group controlId="projectname">
+                                            <Form.Label className="formlabel">PROJECT NAME</Form.Label>
+                                            <Form.Control type="text" placeholder="e.g. Dogelon" />
+
+                                        </Form.Group>
+                                        <Form.Group controlId="ticker">
+                                            <Form.Label className="formlabel">TICKER</Form.Label>
+                                            <Form.Control type="text" placeholder="e.g. ELON" />
+                                        </Form.Group>
+                                        <Form.Group controlId="websiteurl">
+                                            <Form.Label className="formlabel">WEBSITE URL</Form.Label>
+                                            <Form.Control type="text" placeholder="www.dogelon.com" />
+                                        </Form.Group>
+                                        <Form.Group controlId="yourmessage">
+                                            <Form.Label className="formlabel">YOUR MESSAGE</Form.Label>
+                                            <Form.Control as="textarea" rows={3} placeholder="Start typing..." />
+                                            <Form.Text className="text-muted">
+                                                Max 200 characters.
+                                            </Form.Text>
+                                        </Form.Group>
+                                        <Button type="submit" className="addMore" block style={{ borderRadius: "12px", border: 'none' }}>Submit form</Button>
+                                    </Form>
+
+                                </Col>
+                            </Row>
+                        </div>
+
+
+                    </Modal.Body>
+
+                </Modal>
                 <Modal show={showSuccess} onHide={handleSuccessClose} animation={false} style={{ borderRadius: '24px' }}>
                     <Modal.Body className="p-4 modalSucces successModal">
                         <div>
                             <div className="mx-auto p-4" style={{ textAlign: "center" }}>
                                 <Row><Col><img src={tickmarkIcon} alt="" /></Col></Row>
                                 <Row><Col><h2>Application Sent</h2></Col></Row>
-                                <Row><Col><p style={{ color: '#543939' }}></p></Col></Row>
+                                <Row><Col><p style={{ color: '#543939' }}>Thank you for expressing interest in partnering with Kawakami Inu! One of our team members will get back to you shortly.</p></Col></Row>
                                 <Row>
                                     <Col>
                                         <div>
                                             <Button className="successModalButton" variant="outline-success" size="md" onClick={handleSuccessClose}>
-                                              
+                                                BACK TO KAWAFARM
                                             </Button>
                                         </div>
                                     </Col>
