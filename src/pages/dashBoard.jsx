@@ -177,9 +177,6 @@ const DashBoard = () => {
                    
                 </Row>
                 
-                </Modal.Body>
-
-                </Modal>
                 <Modal show={showSuccess} onHide={handleSuccessClose} animation={false} style={{ borderRadius: '24px' }}>
                     <Modal.Body className="p-4 modalSucces successModal">
                         <div>
