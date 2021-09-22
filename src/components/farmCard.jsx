@@ -246,15 +246,15 @@ const CoinCard = (props) => {
                    
                     <div>
                         <h6 className='mb-0' style={{ color: '#e8e8e8' }}>Stake</h6>
-                        <className="text-white value-text">{cardData.lpToken}
+                        <strong className="text-white value-text">{cardData.lpToken}</strong>
                     </div>
                     <div>
                         <h6 className='mb-0' style={{ color: '#e8e8e8' }}>APY</h6>
-                        <className="text-white value-text">{poolApy}
+                        <strong className="text-white value-text">{poolApy}</strong>
                     </div>
                     <div>
                         <h6 className='mb-0' style={{ color: '#e8e8e8' }}>Earn</h6>
-                        <Badge pill variant="light" className="tagKawa">CHIZ</Badge>
+                        <strong ><Badge pill variant="light" className="tagKawa">CHIZ</Badge></strong>
                     </div>
 
                 </div>
