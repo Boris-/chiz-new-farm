@@ -245,16 +245,16 @@ const CoinCard = (props) => {
                 <div className="d-flex justify-content-between p-3 token-info">
                    
                     <div>
-                        <h6 className='mb-0' style={{ color: '#977D83' }}>Stake</h6>
-                        <strong className="text-white value-text">{cardData.lpToken}</strong>
+                        <h6 className='mb-0' style={{ color: '#e8e8e8' }}>Stake</h6>
+                        <className="text-white value-text">{cardData.lpToken}
                     </div>
                     <div>
-                        <h6 className='mb-0' style={{ color: '#977D83' }}>APY</h6>
-                        <strong className="text-white value-text">{poolApy}</strong>
+                        <h6 className='mb-0' style={{ color: '#e8e8e8' }}>APY</h6>
+                        <className="text-white value-text">{poolApy}
                     </div>
                     <div>
-                        <h6 className='mb-0' style={{ color: '#977D83' }}>Earn</h6>
-                        <strong ><Badge pill variant="light" className="tagKawa">CHIZ</Badge></strong>
+                        <h6 className='mb-0' style={{ color: '#e8e8e8' }}>Earn</h6>
+                        <Badge pill variant="light" className="tagKawa">CHIZ</Badge>
                     </div>
 
                 </div>
