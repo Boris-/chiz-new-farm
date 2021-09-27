@@ -1,26 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
-
-@font-face {
-  font-family: 'Eurostile Extended';
-  src: url('../fonts/eurostile_extended_black.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-.font-extended {
-  font-family: 'Eurostile Extended', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap');
 
 body {
   overflow-x: hidden;
   width: 100%;
-  font-family: 'Eurostile Extended', sans-serif !important;
+  background-color: #000;
+  font-family: 'Barlow', Inter, sans-serif !important;
 }
-.ibm-plex {
-  font-family: 'Eurostile Extended', sans-serif !important;
-  letter-spacing: 0 !important;
-}
+
 
 .color-gray {
   color: #8a8a8a !important;
@@ -65,9 +52,7 @@ h1 {
 
 .main-dash-container {
   padding-top: 60px;
-  @media screen and (min-width: 992px) {
-    padding-top: 100px;
-  }
+  
 }
 
 .header {
@@ -632,18 +617,12 @@ hr {
 }
 
 .card_stake_text {
-  color: #977d83;
+  color: #F5F5F5;
 }
 .cardButton {
   color: #136f1c;
-  background: #d1f3d5;
   border-radius: 8px;
   border: 1px solid #8cd594;
-  &:hover {
-    color: #136f1c;
-    background: #d1f3d5;
-    border: 1px solid #8cd594 !important;
-  }
 }
 .tagKawa {
   background: #fef1f4;
@@ -799,7 +778,7 @@ p.walletsetup {
 }
 
 .headerdropdown {
-  background: #fcdfe9;
+  
   border-radius: 8px;
   margin-bottom: 0;
   .input-group-text {

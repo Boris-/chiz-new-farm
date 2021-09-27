@@ -6,8 +6,6 @@ import useFarms from '../hooks/useFarms';
 import useAllStakedValue from '../hooks/useAllStakedValue';
 import usePayr from '../hooks/usePayr';
 
-
-
 import { BASIC_TOKEN } from '../constants/config';
 import { useWallet } from 'use-wallet';
 import { useEffect } from 'react';
@@ -71,8 +69,6 @@ const FarmCard = (props) => {
                 rows.map((poolRow, i) => (
                     <div key={i} md="10" lg="6" xl="4" className="stake-card-container">
                         {poolRow.map((pool, j) => (
-                           
-                           
                             <CoinCard pool={pool}/>
                         ))}
                     </div>
@@ -232,78 +228,85 @@ const CoinCard = (props) => {
     }
     
     return (
-    <Card style={{ width: '22rem' }} className="stake_card p-0 m-0 mr-2 mt-2">
+    <Card style={{ width: '22rem' }} className="text-white rounded-lg border border-gray-700 p-4 mr-8 mb-4">
             
             <Card.Header>
-                <div className="d-flex justify-content-start p-3">
-                    <div><Image src={cardData.icon} roundedCircle style={{ maxWidth: '50px', maxHeight: '50px' }} /></div>
-                    <div style={{marginLeft:'12px'}}>
-                        <h5 className="m-0 text-light">{cardData.poolTitle}</h5>
-                        <small>{cardData.name}-CHIZ</small>
+                <div className="d-flex justify-content-start pt-2">
+                    <div>
+                        <Image src={cardData.icon} roundedCircle style={{ maxWidth: '50px', maxHeight: '50px' }} />
+                    </div>
+                    <div>
+                        <h5 className="text-xl font-bold">{cardData.poolTitle}</h5>
+                        <small className="pool-info">{cardData.name}-CHIZ</small>
                     </div>
                 </div>
-                <div className="d-flex justify-content-between p-3 token-info">
-                   
+                <div className="flex justify-between token-info mb-4 mt-4">
                     <div>
-                        <h6 className='mb-0' style={{ color: '#e8e8e8' }}>Stake</h6>
+                        <h6 className='mb-0' style={{ color: '#977D83' }}>Stake</h6>
                         <strong className="text-white value-text">{cardData.lpToken}</strong>
                     </div>
                     <div>
-                        <h6 className='mb-0' style={{ color: '#e8e8e8' }}>APY</h6>
+                        <h6 className='mb-0' style={{ color: '#977D83' }}>APY</h6>
                         <strong className="text-white value-text">{poolApy}</strong>
                     </div>
                     <div>
-                        <h6 className='mb-0' style={{ color: '#e8e8e8' }}>Earn</h6>
-                        <strong ><Badge pill variant="light" className="tagKawa">CHIZ</Badge></strong>
+                        <h6 className='mb-0' style={{ color: '#977D83' }}>Earn</h6>
+                        <strong className="text-red-500">CHIZ</strong>
                     </div>
-
                 </div>
-                <div className="pool-description">
-                    <h6>{cardData.pool}</h6>
+                <div className="text-sm pb-2 font-bold text-yellow-700">
+                    {cardData.pool}
                 </div>
 
             </Card.Header>
-            {showBox === 'approve' && <Card.Body className="cardBodyColor">
-                <div className="cardBox m-1 p-2" style={{ opacity: '0.5' }}>
+
+            {showBox === 'approve' && <Card.Body>
+                <div className="rounded-lg border border-gray-700" style={{ opacity: '0.5' }}>
                     <Row>
                         <Col lg={12}>
-                            <div className="d-flex justify-content-between p-0">
-                                <div>
-                                    <small className="card_stake_text"><strong style={{ paddingLeft: 16 }}>STAKED</strong></small>
-                                    <Form.Control size="sm" style={{ border: "none" }} type="text" value={staked} disabled />
+                            <div className="d-flex justify-content-between p-4">
+                                
+                                <div className="flex">
+                                    <div className="w-1/2"><strong>STAKED</strong></div>
+                                    <div><strong>{staked}</strong></div>
                                 </div>
-                                <div className="py-2">
-                                    <InputGroup.Prepend >
-                                        <InputGroup.Text style={{ background: "#fff", border: 'none' }}>
-                                            <small><strong className="card_stake_text pt-2">
-                                            {cardData.stake}
-                                            </strong></small>
-                                        </InputGroup.Text>
-                                    </InputGroup.Prepend>
+
+                                <div className="flex">
+                                    <div className="w-1/2"><strong>CHIZ EARNED</strong></div>
+                                    <div><strong>{earned}</strong></div>
                                 </div>
+
+
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text style={{ background: "#fff", border: 'none' }}>
+                                        <small><strong className="card_stake_text pt-2">
+                                        {cardData.stake}
+                                        </strong></small>
+                                    </InputGroup.Text>
+                                </InputGroup.Prepend>
+                                
                             </div>
                         </Col>
                         <Col lg={12}>
-                            <div className="d-flex justify-content-between p-0 align-items-end">
-                                <div>
-                                    <small className="card_stake_text"><strong style={{ paddingLeft: 12 }}>CHIZ EARNED</strong></small>
-                                    <Form.Control size="sm" style={{ border: "none" }} type="text" value={earned} disabled />
-                                </div>
-                                <div className="pt-2">
+                            <div className="">
+                                
+                                <div className="p-4">
                                     <InputGroup.Prepend >
                                         <InputGroup.Text style={{ background: "#fff", border: 'none' }}>
-                                            <small><strong className="card_stake_text pt-2">
-                                                <Button className="cardButton" disabled style={{ border: "none", background: "rgba(239, 239, 239, 1)",opacity:"1", color: "#ABABAB" }}>Harvest</Button>
+                                            <small><strong className="pt-2">
+                                                <Button className="button" disabled>Harvest</Button>
                                             </strong></small>
                                         </InputGroup.Text>
                                     </InputGroup.Prepend>
                                 </div>
+
+                                
                             </div>
                         </Col>
                     </Row>
 
                 </div>
-                <Row className="p-2">
+                <Row className="pt-2">
                     <Col lg={12}>
 
                         {!allowance.toNumber() ? (
@@ -320,7 +323,10 @@ const CoinCard = (props) => {
                                     Approving...</strong>
                                 </Button>
                             ): (
-                                <Button variant="light" style={{ border: '1px solid #E6E5E5', borderRadius: '0', fontSize:'13px', color:'#fff', textTransform:'uppercase', backgroundColor:'transparent' }} onClick={handleApprove} block><strong>Approve Contract</strong></Button>
+                                
+                                <a href="#" className="button mt-2 block text-center" onClick={handleApprove}>Approve Contract</a>
+                                
+
                             )}
                             </>
                         ) : (    
@@ -332,29 +338,29 @@ const CoinCard = (props) => {
                             )}       
                     </Col>
                 </Row>
-                <div className="px-4 pt-4 stake-info">
+                <div className="pt-1 stake-info">
                     <Row>
                         <Col sm={6} className="text-left">
-                            <small className="card_stake_text color-gray">
+                            <span className="card_stake_text">
                                 TOTAL VALUE
-                            </small>
+                            </span>
                         </Col>
                         <Col sm={6} className="text-left">
-                            <small className="card_stake_text color-gray">
+                            <span className="card_stake_text ">
                                 MY STAKE
-                            </small>
+                            </span>
                         </Col>
                     </Row>
                     <Row>
                         <Col sm={6} className="text-left">
-                            <small className="card_stake_text  ibm-plex color-gray">
+                            <span className="card_stake_text  ibm-plex ">
                                 {totalLpValue} {cardData.name}
-                            </small>
+                            </span>
                         </Col>
                         <Col sm={6} className="text-left">
-                            <small className="card_stake_text ibm-plex color-gray">
+                            <span className="card_stake_text ibm-plex ">
                                 {staked} {cardData.name}
-                            </small>
+                            </span>
                         </Col>
                     </Row>
                 </div>
@@ -365,7 +371,7 @@ const CoinCard = (props) => {
                         <h5>Deposit</h5>
                     </Col>
                     <Col lg={12}>
-                        <div className="cardBox m-1 p-2">
+                        <div className="cardBox p-2">
                             <Row>
                                 <Col lg={12} className="">
                                     <div className="d-flex justify-content-between p-0">
@@ -429,7 +435,7 @@ const CoinCard = (props) => {
                 </Row>
             </Card.Body>}
             {showBox === 'withdrawaddmore' && <Card.Body className="cardBodyColor ">
-                <div className="cardBox m-1 p-2">
+                <div className="cardBox p-2">
                     <Row>
                         <Col lg={12}>
                             <div className="d-flex justify-content-between p-0">
@@ -509,7 +515,7 @@ const CoinCard = (props) => {
                         <h5>Deposit</h5>
                     </Col>
                     <Col lg={12} className="">
-                        <div className="cardBox m-1 p-2">
+                        <div className="cardBox p-2">
                             <div className="d-flex justify-content-between p-0" style={{ background: '#FFF' }}>
                                 <div className="mr-1">
                                     <Form.Control size="lg" style={{ border: "none" }} as="input" type="number" value={depositAmount} onChange={(val) => setDepositAmount(val.target.value)} />
@@ -643,7 +649,7 @@ const CoinCard = (props) => {
                         <h5>Earned Amount</h5>
                     </Col>
                     <Col lg={12}>
-                        <div className="cardBox m-1 p-2">
+                        <div className="cardBox p-2">
                             <Row>
                                 <Col lg={12} className="">
                                     <div className="d-flex justify-content-between p-0">
